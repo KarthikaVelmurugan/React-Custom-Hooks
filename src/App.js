@@ -1,23 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import useModal from './Hooks/useModal';
+import ModalBox from './CustomModalBox';
 
 function App() {
+  const { visible, toggle } = useModal()
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button className="btn-default" onClick={toggle}>Show Modal</button>
+      <ModalBox visible={visible} toggle={toggle} />
     </div>
   );
 }
